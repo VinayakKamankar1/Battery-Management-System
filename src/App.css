@@ -1,0 +1,132 @@
+/* Responsive Layout & Utility Animations */
+
+.page-slide-enter {
+  animation: pageSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pageSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.995);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+
+@media (max-width: 840px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .mobile-toggle {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 841px) {
+  .mobile-drawer {
+    display: none !important;
+  }
+}
+
+.pulse-icon {
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(0.98);
+  }
+}
+
+/* Print styling helper for PDF export and physical printing */
+@media print {
+  header, 
+  footer, 
+  nav, 
+  .no-print, 
+  button, 
+  input, 
+  select,
+  .mobile-drawer,
+  .mobile-toggle {
+    display: none !important;
+  }
+
+  body, html {
+    background: #ffffff !important;
+    color: #18181b !important;
+    font-size: 11pt !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .print-document {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .print-page-break {
+    page-break-before: always;
+  }
+
+  .print-avoid-break {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+
+/* Hero Landing Banner Responsive Styles */
+.hero-landing-banner {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(226, 232, 240, 0.15);
+  box-shadow: 0 24px 48px -12px rgba(8, 12, 24, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  padding: clamp(36px, 5vw, 60px) clamp(24px, 4.5vw, 52px);
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 36px;
+  width: 100%;
+}
+
+@media (max-width: 840px) {
+  .hero-landing-banner {
+    background-position: center center !important;
+    padding: 28px 20px !important;
+    min-height: auto !important;
+  }
+}
+
+
